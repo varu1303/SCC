@@ -1,0 +1,13 @@
+{
+  "name": "scc",
+  "version": "1.0.0",
+  "description": "SCC v0",
+  "main": "server.js",
+  "scripts": {},
+  "author": "Varun",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.4.13"
+  }
+}
