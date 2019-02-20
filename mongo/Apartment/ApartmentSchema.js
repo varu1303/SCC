@@ -1,19 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const { BookingSchema } = require('../Booking/BookingSchema');
+
 const ObjectId = Schema.Types.ObjectId;
 const ApartmentSchema = new Schema({
     no: {
         type: String
     },
-    condo: { type: ObjectId, ref: 'Condo' }, // Reference Condo as need access to all the booking details,
-                                             // events and Annocuements on Admin's UI page
+    condo: { type: ObjectId, ref: 'Condo' }, // Reference Condo as required by Resident when gets signed up
     residents: [{ 
         refId: ObjectId, 
         name: String,
         display: String
-    }] // Normalizing Resident, Resident cannot update details after getting screened*, will get added here
+    }], // Normalizing Resident, Resident cannot update details after getting screened*, will get added here
        // when screened is set to true and Resident document wont change after that.
+    bookings: [BookingSchema]
 })
 
 const Apartment = mongoose.model('Apartment', ApartmentSchema);
