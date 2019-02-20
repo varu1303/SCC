@@ -6,7 +6,6 @@ const CondoSchema = new Schema({
     name: {
         type: String
     },
-    admin: [{ type: ObjectId, ref: 'Admin' }],
     Address: {
         line1: String,
         line2: String,
@@ -18,6 +17,9 @@ const CondoSchema = new Schema({
         long: String,
         lat: String
     },
+    admin: [{ type: ObjectId, ref: 'Admin' }], // One to Few - Referenced because Admins need to be 
+                                               // accessed stand alone. No reference because Admins
+                                               // can change display after getting rights!
     description: {
         type: String,
         apartmentCount: Number
@@ -28,12 +30,12 @@ const CondoSchema = new Schema({
         },
         cover: {
             type: String
-        },
-        facility: {
-           // whatever facility gets any image added becomes a key and goes in this 
         }
     },
-    apartment: [{ type: ObjectId, ref: 'Apartment' }]
+    amenities: [{ name: String, icon: String, activity: Boolean  }] // Embeded because nothing changes,
+                                                                    // if icon changes, update image in
+                                                                    // server not the name.
+    // apartment: [{ type: ObjectId, ref: 'Apartment' }] ** Apartments can be around 2k so, use PARENT REF.
 })
 
 const Condo = mongoose.model('Condo', CondoSchema);
