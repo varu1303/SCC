@@ -36,7 +36,7 @@ const CondoSchema = new Schema({
             type: String
         }
     },
-    amenities: [{ name: String, icon: String,
+    amenities: [{ name: String, icon: String, count: Number,
                   activity: Boolean }], // Activity true for bookable amenity!
                                     // Embeded because nothing changes,
                                     // if icon changes, update image in

@@ -15,6 +15,7 @@ const ResidentSchema = new Schema({
     name: {
         type: String
     },
+    apartmentNo: String,
     apartment: { type: ObjectId, ref: 'Apartment' }, // To see other residents and one's Condo 
     screened: { type: Boolean, default: false }, // When updated to true - added to Apartment Document
     vacatedOn: { type: Date, default: null } // When date gets a value need to be removed from Apartment

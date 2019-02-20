@@ -15,7 +15,7 @@ const ApartmentSchema = new Schema({
         display: String
     }], // Normalizing Resident, Resident cannot update details after getting screened*, will get added here
        // when screened is set to true and Resident document wont change after that.
-    bookings: [BookingSchema]
+    // bookings: [BookingSchema]
 })
 
 const Apartment = mongoose.model('Apartment', ApartmentSchema);
