@@ -9,6 +9,7 @@ const CondoSchema = new Schema({
     name: {
         type: String
     },
+    live: { type: Boolean, default: false},
     Address: {
         line1: String,
         line2: String,

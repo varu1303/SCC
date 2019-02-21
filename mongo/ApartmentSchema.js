@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const { BookingSchema } = require('../Booking/BookingSchema');
+const { BookingSchema } = require('./Booking/BookingSchema');
 
 const ObjectId = Schema.Types.ObjectId;
 const ApartmentSchema = new Schema({

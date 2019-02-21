@@ -9,6 +9,8 @@ const AdminSchema = new Schema({
     password: {
         type: String
     },
+    verifiedEmail: { type: Boolean, default: false },
+    emailHash: { type: String },
     display: {
         type: String
     },
