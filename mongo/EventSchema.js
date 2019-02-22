@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const ObjectId = mongoose.Schema.ObjectId;
 // Archived Events go here - A job removes them from embedded array in Condo document based
 // on expires on date
 const EventSchema = new Schema({ 
@@ -11,7 +12,7 @@ const EventSchema = new Schema({
     venue: String, 
     postedOn: Date, 
     expiresOn: Date, 
-    op: { adminId: mongoose.Schema.ObjectId, name: String, display: String },
+    op: { adminId: ObjectId, name: String, display: String },
     deletedBy: { type: ObjectId, default: null },
     condo: Schema.Types.ObjectId
 })

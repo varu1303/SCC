@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
+const ObjectId = mongoose.Schema.ObjectId;
 // Archived Notices go here - A job removes them from embedded array in Condo document based
 // on expires on date
 const NoticeSchema = new Schema({ 

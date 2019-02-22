@@ -17,7 +17,7 @@ router.post('/signup', hash, (req, res) => {
 
     admin.save()
         .then(data => {
-            res.status('200').json(response(true, 'Sign Up Complete.'));
+            res.status('201').json(response(true, 'Sign Up Complete.'));
         })
         .catch(err => {
             console.log(err);

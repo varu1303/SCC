@@ -13,8 +13,7 @@ module.exports = (req, res, next) => {
                 })
                 .catch(err => {
                     res.end();
-                })
-                
+                })               
         })
         .catch(err => {
             res.end();

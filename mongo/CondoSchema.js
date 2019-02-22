@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const { EventSchema } = require('../Notice/EventSchema');
-const { NoticeSchema } = require('../Notice/NoticeSchema');
+const { EventSchema } = require('./EventSchema');
+const { NoticeSchema } = require('./NoticeSchema');
 
 const ObjectId = Schema.Types.ObjectId;
 const CondoSchema = new Schema({
@@ -10,12 +10,12 @@ const CondoSchema = new Schema({
         type: String
     },
     live: { type: Boolean, default: false},
-    Address: {
+    address: {
         line1: String,
         line2: String,
-        pinCode: String,
         landmark: String,
-        Country: String
+        pinCode: String,
+        country: String
     },
     location: {
         long: String,

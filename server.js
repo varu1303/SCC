@@ -8,6 +8,7 @@ const { port } = require('./config/config');
 const admin = require('./routes/adminRoute');
 const mod = require('./routes/modRoute');
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Static files
