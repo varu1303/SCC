@@ -1,55 +1,42 @@
 $(document).ready(() => {
-    // console.log('Time for JQ!');
-    // $('#registerReqBtn').on('click', () => {
-    //     let reqBody = {
-    //         email: "mod@scc.com",
-    //         password: $('#password').val() || "scc@modpass",
-    //         condo: {
-    //             name: $('#name').val(),
-    //             address: {
-    //                 line1: "xyz1",
-    //                 line2: "xyz2",
-    //                 landmark: "abc",
-    //                 pincode: "411057",
-    //                 country: "abcCNT"
-    //             },
-    //             location: {
-    //                 long: "28.4595",
-    //                 lat: "77.0266"
-    //             }
-    //         }
-    //     }
-    //     // console.log(reqBody);
-    //     $.post('/mod/registerCondo', {"reqBody": 1})
-    //         .done(function(returnedData){
-    //                 console.log(returnedData);
-    //         }).fail(function(){
-    //             console.log("error");
-    //         });
-    // })
 
+    let response = $("#response");
+
+    $(".loader").hide();
+    
     $("#mod_form").on("submit", function(event) {
+        $(".loader").show();
         event.preventDefault();
         let reqBody = { condo: { address: {}, location: {} } };
         $("#mod_form").serializeArray().forEach(item => {
             if (item.name === 'email' || item.name === 'password')
-                reqBody[item.name] = item.value;
+            reqBody[item.name] = item.value;
             else {
                 if (item.name === 'long' || item.name === 'lat')
-                    reqBody.condo.location[item.name] = item.value;
+                reqBody.condo.location[item.name] = item.value;
                 else if (item.name === 'name' || item.name === 'lat')
-                    reqBody.condo[item.name] = item.value;
+                reqBody.condo[item.name] = item.value;
                 else
-                    reqBody.condo.address[item.name] = item.value;
+                reqBody.condo.address[item.name] = item.value;
             }
         })
-        console.log(reqBody);
+        // console.log(reqBody);
         $.post("/mod/registerCondo", reqBody)
         .done(data => {
+            $(".loader").hide();
+            $(".form_holder").css("border-color", "#e0e4f1");
             console.log(data);
         })
         .fail(err => {
-            console.log(err);
+            $(".loader").hide();
+            $(".form_holder").css("border-color", "red");
+            // $("#text").innerText(err.responseText.message);
+            response.show();
+            // console.log(err.responseText);
         })
+    })
+
+    $("#resClsBtn").on('click', () => {
+        response.hide();
     })
 })

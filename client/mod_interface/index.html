@@ -9,6 +9,12 @@
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
+        <div class="loader"><span>Loading...</span></div>
+        <div class="responseHolder">
+            <p id="response"><span id="text"></span>
+                <span id="resClsBtn"><button class="btn btn-default" style="color: white;">X</button></span>
+            </p>
+        </div>
         <div class="form_holder">
             <h4 style="text-align: center">Fill in Details</h4>
             <form id="mod_form">
@@ -75,6 +81,7 @@
                 <div style="text-align: center">
                     <button type="submit" class="btn btn-primary" name="registerReqBtn">Register Condo</button>
                 </div>
+
             </form>
         </div>
         <script
