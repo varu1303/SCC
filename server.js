@@ -15,7 +15,9 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '/client/base_interface')));
 app.use('/mod', express.static(path.join(__dirname, '/client/mod_interface')));
 app.use('/services',express.static(path.join(__dirname, '/client/services_interface')));
+app.use('/admin',express.static(path.join(__dirname, '/client/admin_interface')));
 app.use('/app', express.static(path.join(__dirname, '/client/app_interface')));
+app.use('/common', express.static(path.join(__dirname, '/client/common_assets')));
 
 // ROUTES!
 app.use('/admin', admin);
