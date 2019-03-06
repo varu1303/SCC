@@ -5,11 +5,62 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Admin Login/SignUp</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="main.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="/admin/css/main.css">
 </head>
 <body>
-    <h3>Admin Sign up! - 2 form - Credentials + Search Condos and select 1.</h3>
-    <h3>and Sign In</h3>
+    <div class="container">
+        <div class="form">
+            <div class="toggler">
+                <p id="signup_tab" class="inactive">Signup</p>
+                <p id="login_tab" class="active">Login</p>
+            </div>
+            <p class="inst">
+                <span id="active_tab"></span> SCC with your email address
+            </p>
+            <form id="signup_form">
+                <div class="input_group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" placeholder="Name" />
+                </div>
+                <div class="input_group">
+                    <label for="email">Email</label>
+                    <input type="email" id="up_email" placeholder="Email" />
+                </div>
+                <div class="input_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="up_password" placeholder="Password" />
+                </div>
+                <div class="btn_holder">
+                    <button>Signup</button>
+                </div>
+            </form>
+            <form id="login_form">
+                <div class="input_group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Email" />
+                </div>
+                <div class="input_group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Password" />
+                </div>
+                <div class="btn_holder">
+                    <button>Login</button>
+                </div>
+
+                
+                <div class="spacing">
+                    <a href="#">Forgot your password?</a>
+                </div>
+            </form>
+
+            <p class="logo">
+                <span>SCC</span>
+            </p>
+        </div>
+
+    </div>
+    <script src="/common/js/jquery.js"></script>
+    <script src="/admin/js/main.js"></script>
 </body>
 </html>
