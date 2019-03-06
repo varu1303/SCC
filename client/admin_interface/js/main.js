@@ -32,4 +32,19 @@ $(document).ready(() => {
             login_form.show();
         }
     })
+
+    signup_form.on('submit', (e) => {
+        console.log('SING_FORM');
+        e.preventDefault();
+        signup_form.serializeArray().forEach(item => {
+            console.log(item);
+        })
+    })
+    login_form.on('submit', (e) => {
+        console.log('login_FORM', login_form.serializeArray());
+        e.preventDefault();
+        login_form.serializeArray().forEach(item => {
+            console.log(item);
+        })
+    })
 })
