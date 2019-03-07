@@ -27,10 +27,9 @@ router.post('/signup', hash, (req, res) => {
         })
 })
 
-router.get('/searchCondo', (req, res) => {
+router.post('/searchCondo', (req, res) => {
 
     let searchText = req.body.condoName;
-
     if (searchText) {
         Condo.find({ name: { "$regex": searchText, "$options": "i" }})
             .then(data => {
