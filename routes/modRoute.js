@@ -10,16 +10,14 @@ const { mod_pass } = require('../config/config');
 router.post('/registerCondo', (req, res) => {
     // console.log(request.headers['x-forwarded-for']);
     // Whitelist.findOne({ ip: req.connection.remoteAddress })
-    Whitelist.findOne({ ip: '1'})
-        .then(data => {
-            if (data) {
-                console.log(req.body);
+    // Whitelist.findOne({ ip: '1'})
+    //     .then(data => {
+    //         if (data) {
+    //             console.log(req.body);
                 let { email, password, condo } = req.body;
-                if (email === 'mod@scc.com') {
-                    // res.send(bcrypt.hashSync('', 10));
-                    bcrypt.compare(password, mod_pass, function(err, result) {
-                        if (result) {
-                            // console.log(condo);
+                // if (email === 'mod@scc.com') {
+                    // bcrypt.compare(password, mod_pass, function(err, result) {
+                        // if (result) {
                             let newCondo = new Condo({...condo});
                             newCondo.save()
                                 .then(data => {
@@ -28,21 +26,20 @@ router.post('/registerCondo', (req, res) => {
                                 .catch(err => {
                                     res.status('500').json(response(true, 'Moderator OK! Condo could not beSaved!'));
                                 })
-                        } else {
-                            res.status('401').json(response(false, 'Incorrect Password.')); 
-                        }
-                    });
-                } else {
-                    res.status('404').json(response(false, 'Incorrect Email.'));
-                }
-                // res.send('Allowed');
-            } else {
-                res.status('401').json(response(false, 'IP not whitelisted.'));
-            }
-        })
-        .catch(err => {
-            res.end();
-        })
+                        // } else {
+                        //     res.status('401').json(response(false, 'Incorrect Password.')); 
+                        // }
+                    // });
+                // } else {
+                //     res.status('404').json(response(false, 'Incorrect Email.'));
+                // }
+            // } else {
+            //     res.status('401').json(response(false, 'IP not whitelisted.'));
+            // }
+        // })
+        // .catch(err => {
+        //     res.end();
+        // })
 })
 
 module.exports = router;
